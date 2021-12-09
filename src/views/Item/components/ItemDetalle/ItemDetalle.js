@@ -9,7 +9,10 @@ export default function ItemDetalle() {
     const productos = [
         { id: 1, nombre:"Producto 1", desc:"descripcion" },
         { id: 2, nombre:"Producto 2", desc:"descripcion" },
-        { id: 3, nombre:"Producto 3", desc:"descripcion" }
+        { id: 3, nombre:"Producto 3", desc:"descripcion" },
+        { id: 4, nombre:"Producto 4", desc:"descripcion" },
+        { id: 5, nombre:"Producto 5", desc:"descripcion" },
+        { id: 6, nombre:"Producto 6", desc:"descripcion" }
     ]
     return (
         <>

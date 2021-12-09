@@ -40,6 +40,38 @@ export default function Item() {
                     </Card>
                 </Row>
 
+                <Row className="justify-content-md-center">
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                        <Card.Title>Producto 4</Card.Title>
+                        <Card.Text>
+                            Descripción
+                        </Card.Text>
+                        <Button as={Link} to='/4' variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                        <Card.Title>Producto 5</Card.Title>
+                        <Card.Text>
+                            Descripción
+                        </Card.Text>
+                        <Button as={Link} to='/5' variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                        <Card.Title>Producto 6</Card.Title>
+                        <Card.Text>
+                            Descripción
+                        </Card.Text>
+                        <Button as={Link} to='/6' variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                </Row>
+
             </Container>
         </>
     )
