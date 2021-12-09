@@ -5,17 +5,17 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
-export default function withProtection(Component, role) {
+export default function withProtection(Component, _role) {
   //Verificamos si tenemos un token. Si no lo tenemos no mostramos el componente
   const ProtectedComponent = (props) => {
     const [token] = useState(window.localStorage.getItem("token"));
-    const [rol] = useState(window.localStorage.getItem("role"));
+    const [role] = useState(window.localStorage.getItem("role"));
 
-    if (role === "AMBOS") {
-      role = rol;
+    if (_role === "AMBOS") {
+      _role = role;
     }
     
-    if (token !== null && role == rol) {
+    if (token !== null && _role == role) {
       return <Component {...props} />;
     } else {
       return <Redirect to="/login" />;
