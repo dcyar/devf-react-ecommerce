@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './ProductDetail.css'
-import item from '../../assets/images/item.jpg'
 import ProductCount from './components/ProductCount'
+import './ProductDetail.css'
 
 const ProductDetail = ({ productId }) => {
   const [product, setProduct] = useState(null)
