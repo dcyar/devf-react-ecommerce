@@ -1,0 +1,151 @@
+.register-wrap{
+    
+    border: 0;
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+    box-sizing: border-box;
+ }
+ 
+ 
+ 
+ .register{
+     font-family:sans-serif; ;
+     padding-bottom: 150px;
+     padding-top: 150px;
+     box-sizing: border-box;
+     margin: auto;
+ 
+     
+ 
+ }
+ .register-contenedor{
+     width: 80%;
+     padding: 4px;
+ }
+ .register-contenedor-input{
+     margin-top: 15px;
+     padding: 3px;  
+     
+ }
+ .register-contenedor-input input:focus-within {
+     border-color: #3BB77E;
+ }
+ 
+ h1{ 
+     
+     font-size: 48px;
+     color: #253D4E;
+     margin-bottom: -2%;
+ }
+ p{
+     color: #7e7e7e;
+     font-size: 1rem;
+     font-weight: 400;
+     line-height: 24px;
+     
+ }
+ .parrafo{
+     text-align: justify;
+ }
+ 
+ 
+ button{
+     border-radius: 10px;
+     font-size: 16px;
+     padding: 15px 40px;
+     background: #253D4E;
+     color: #fff;
+     border:0;
+     font-weight: 700;
+     cursor: pointer;
+     letter-spacing: .5px;
+     margin-top: 30px ;
+     margin-bottom: 50px;
+     transition: .2s;
+     
+ }
+ 
+ 
+ input[type='text'],
+ input[type='password']{
+     font-size: 16px;
+     width: 100%;
+     border: 1px solid #ececec;
+     height: 64px;
+     padding-left: 20px;
+     border-radius: 10px; 
+     outline: none;
+     
+ }
+ 
+ .register-footer{
+     margin-top: 15px;
+     font-size: 14px;
+     color: #7e7e7e;
+     align-items: center;
+     display: flex;
+     
+     
+ 
+ }
+ 
+ .cuenta {
+     color: #7e7e7e;
+     
+         
+
+ }
+ .cuenta a{
+    text-decoration: none;
+    color: #3BB77E;
+ }
+ .cuenta a:active{
+     color: #ffc107;
+ }
+ 
+ 
+ .btn:active{
+     background-color: #3BB77E;
+     width: 150px; 
+ }
+ /* //checkbox */
+ input[type='checkbox'] + label{
+    display: block;
+ }
+ input[type='checkbox']{
+     display: none;
+     
+ }
+ input[type='checkbox'] + label:before{
+    content: '\2714';
+    border:0.1em solid #b6b6b6 ;
+    border-radius: 0.2em;
+    display: inline;
+     width: 1em;
+    height: 1em; 
+     padding-left: 0.2em;
+    padding-bottom: 0.2em;
+    margin-right: 0.2em; 
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+ }
+ input[type='checkbox']:checked + label::before{
+     background-color: #3BB77E;
+     border-color: #3BB77E;
+     color: #fff;
+ }
+ input[type='checkbox']+ label:active:before{
+     transform: scale(0);
+ }
+ 
+ 
+ 
+ @media(min-width:768px) {
+     .register{
+         margin:auto;
+         width: 500px;
+         
+     }
+ }
