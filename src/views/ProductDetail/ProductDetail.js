@@ -24,9 +24,9 @@ const ProductDetail = ({ productId }) => {
             <div className="product-detail">
               <h1 className="product-title">{product.product_name}</h1>
               <ul className="product-list-data">
-                <li>Brand: {product.brand}</li>
+                <li>Marca: {product.brand}</li>
                 <li className="list-data-item">Review</li>
-                <li>SKU: {product.sku}</li>
+                <li>Categoria: {product.categori}</li>
               </ul>
               <div className="product-price">
                 <p className="price">US${product.price}</p>
@@ -34,7 +34,7 @@ const ProductDetail = ({ productId }) => {
               </div>
               <p className="product-description">{product.description}</p>
               <ul className="product-list">
-                <li>Category: {product.category}</li>
+                <li>SKU: {product.sku}</li>
                 <li>XPD: {(new Date(product.createdAt).toLocaleDateString())}</li>
               </ul>
               <ProductCount product={product} isActive={product.isActive} />
