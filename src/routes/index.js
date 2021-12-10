@@ -4,9 +4,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
+import ProductDetail from "../views/ProductDetail";
 
 /*
 Login
@@ -34,22 +34,11 @@ function Routes() {
         <Route exact path="/profile">
           <Profile />
         </Route>
-        <Route exact path="/:pid">
-          <DetalleProducto />
+        <Route exact path="/productos/:pid">
+          <ProductDetail />
         </Route>
       </Switch>
     </Router>
-  );
-}
-
-function DetalleProducto() {
-  let { pid } = useParams();
-
-  return(
-    <>
-      <h1>Detalle Producto</h1>
-      <h2>Producto con id: {pid} </h2>
-    </>
   );
 }
 
