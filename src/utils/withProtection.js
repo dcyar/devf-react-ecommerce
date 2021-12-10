@@ -14,8 +14,8 @@ export default function withProtection(Component, _role) {
     if (_role === "AMBOS") {
       _role = role;
     }
-    
-    if (token !== null && _role == role) {
+
+    if (token !== null && _role === role) {
       return <Component {...props} />;
     } else {
       return <Redirect to="/login" />;

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom";
 import ProductCount from './components/ProductCount'
 import './ProductDetail.css'
 
-const ProductDetail = ({ productId }) => {
+const ProductDetail = () => {
   const [product, setProduct] = useState(null)
+  const { pid } = useParams();
 
   useEffect(() => {
-    fetch(`https://ecomerce-master.herokuapp.com/api/v1/item/${productId}`)
+    fetch(`https://ecomerce-master.herokuapp.com/api/v1/item/${pid}`)
       .then(response => response.json())
       .then(result => setProduct(result))
       .catch(err => console.log(err));
