@@ -7,13 +7,7 @@ import {
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
 import ProductDetail from "../views/ProductDetail";
-
-/*
-Login
-Registro
-Crear-producto (ruta protegida)
-Profile (opcional - ruta protegida)
-*/
+import PageNotFound from "../views/PageNotFound";
 
 function Routes() {
   return (
@@ -37,6 +31,7 @@ function Routes() {
         <Route exact path="/productos/:pid">
           <ProductDetail />
         </Route>
+        <Route path="*" component={PageNotFound} />
       </Switch>
     </Router>
   );
