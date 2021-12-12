@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import CrearProducto from "../views/CrearProducto/CrearProducto";
+import CrearProducto from "../views/CrearProducto";
 import Profile from "../views/Profile/Profile";
 import ProductDetail from "../views/ProductDetail";
 
