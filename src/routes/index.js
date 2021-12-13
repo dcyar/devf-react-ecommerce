@@ -7,6 +7,7 @@ import {
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
 import ProductDetail from "../views/ProductDetail";
+import Home from "../views/Home/";
 
 /*
 Login
@@ -19,9 +20,7 @@ function Routes() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <h1>Home <br /> <h3>Listado de productos...</h3> </h1>
-        </Route>
+        <Route exact path="/" component={Home} />
         <Route exact path="/login">
           <h1>Login</h1>
         </Route>
