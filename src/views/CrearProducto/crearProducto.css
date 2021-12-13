@@ -31,6 +31,14 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+.item a a {
+    margin-left: 0px;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    color: #7E7E7E;
+}
+
 .item img {
     margin-left: 20px;
 }
@@ -55,6 +63,13 @@
     margin: auto;
 }
 
+.crearProducto__header h3 {
+    font-size: 28px;
+    font-family: "Quicksand", sans-serif;
+    color: #253D4E;
+    font-weight: 700;
+} 
+
 .crearProducto__body form {
     display: flex;
     flex-direction: column;
@@ -65,6 +80,10 @@
     flex-direction: column;
     margin-bottom: 10px;
     color: #7E7E7E;
+}
+
+.crearProducto__body .input label {
+    margin-bottom: 5px;
 }
 
 .crearProducto__body .boton {
@@ -115,6 +134,21 @@
 
 
 /* PRODUCTOS */
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+
+.productos__header h3 {
+    font-size: 28px;
+    font-family: "Quicksand", sans-serif;
+    color: #253D4E;
+    font-weight: 700;
+}
+
 .table2 {
     display: none;
 }
@@ -133,6 +167,7 @@
     flex-direction: column;
     align-items: center;
     border-top: 1px solid rgb(224, 224, 224);
+    border-bottom: 1px solid rgb(224, 224, 224);
 }
 
 .table tbody tr td {
@@ -202,6 +237,7 @@
     .table2 th {
         border: 1px solid rgb(224, 224, 224);
         padding: 8px;
+        font-family: "Quicksand", sans-serif;
     }
     .table2 td {
         border: 1px solid rgb(224, 224, 224);
@@ -221,6 +257,7 @@
     .table2 th {
         border: 1px solid rgb(224, 224, 224);
         padding: 8px;
+        font-family: "Quicksand", sans-serif;
     }
     .table2 td {
         border: 1px solid rgb(224, 224, 224);

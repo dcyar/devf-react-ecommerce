@@ -1,4 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
+import { Link } from "react-router-dom";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import swal from "sweetalert2";
 import withProtection from '../../utils/withProtection';
@@ -14,17 +17,22 @@ import iconoLogout from './logout.png';
     const [token] = useState(window.localStorage.getItem("token"));
     const [infoApi, setInfoApi] = useState([]); // Va a guardar los objetos que se envía a la API por metodo post
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const crearProducto = useRef();
     const productos = useRef();
-    const cerrarSesion = useRef();
     const formulario = useRef();
     const inputNombre = useRef();
+    const tabla = useRef();
+    const tabla2 = useRef();
     
     useEffect(() => {
         //console.log(crearProducto.current.style);
         crearProducto.current.style.display='none';
         productos.current.style.display='none';
-        cerrarSesion.current.style.display='none';
         
 
         const info = {
@@ -39,7 +47,7 @@ import iconoLogout from './logout.png';
         };
         setDatos(info);
     }, [])
-
+    
     const sendData = (datos) => {
         //Toda la lógica de hacer un post
         if (token) {
@@ -64,54 +72,60 @@ import iconoLogout from './logout.png';
             axios(config)
                 .then((response) => {
                     console.log(JSON.stringify(response.data));
-                    setInfoApi(response.data);
+                    setInfoApi([...infoApi, response.data]);
+                    console.log("tabla",tabla.current);
                     swal.fire({
                         title: "Registro exitoso",
                         icon: "success",
                         timer: "2000",
                         showConfirmButton: false,
                     })
+                    //inputNombre.value = " ";
                 })
                 .catch((error) => {
                     console.log(error);
+                    swal.fire({
+                        title: "Complete todos los campos",
+                        icon: "warning",
+                        timer: "2000",
+                        showConfirmButton: false,
+                    })
                 });
         }
     };
-    //console.log(infoApi);
-    let tabla = "";
-    for (let i = 0; i < infoApi.length; i++) {
-        tabla += `
-            <tr>
-                <td> ${infoApi.name} </td>
-                <td> ${infoApi.categoria} </td>
-                <td>2020-11-23T20:20:54.245Z</td>
-                <td>
-                    <div className='boton'>
-                        <button>Ver</button>
-                    </div>
-                </td>
-            </tr>
-        `;
+    console.log("Info api",infoApi);
+    let html = "";
+    if (infoApi[0] != null) {
+        for (let i = 0; i < infoApi.length; i++) {
+            html += `
+                <tr>
+                    <td> ${infoApi[i].product_name} </td>
+                    <td> ${infoApi[i].category} </td>
+                    <td> ${infoApi[i].brand} </td>
+                    <td> ${infoApi[i].createdAt} </td>
+                    <td> $ ${infoApi[i].price} </td>
+                </tr>
+
+            `;
+        }
     }
+
+    if (infoApi[0] != null) {
+        tabla.current.innerHTML = html;
+        tabla2.current.innerHTML = html;
+    }
+
     
     const { inputs, handleInput, handleSubmit } = useForm(sendData, datos);
     
     const mostrarContenidoCrearProducto = () => {
         crearProducto.current.style.display='block';
         productos.current.style.display='none';
-        cerrarSesion.current.style.display='none';
     }
 
     const mostrarContenidoProductos = () => {
         productos.current.style.display='block';
         crearProducto.current.style.display='none';
-        cerrarSesion.current.style.display='none';
-    }
-
-    const mostrarContenidoCerrarSesion = () => {
-        cerrarSesion.current.style.display='block';
-        crearProducto.current.style.display='none';
-        productos.current.style.display='none';
     }
     
     return (
@@ -131,10 +145,10 @@ import iconoLogout from './logout.png';
                                 Productos
                             </a>
                         </li>
-                        <li className='item three' tabIndex="3" onClick={mostrarContenidoCerrarSesion} >
+                        <li className='item three' tabIndex="3" >
                             <img src={iconoLogout} width="22px" />
                             <a>
-                                Cerrar sesión
+                                <Link to="/">Cerrar sesión</Link>
                             </a>
                         </li>
                     </ul>
@@ -214,93 +228,31 @@ import iconoLogout from './logout.png';
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Categoría</th>
+                                                <th>Marca</th>
                                                 <th>Fecha</th>
-                                                <th>Acciones</th>
+                                                <th>Precio</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            ${tabla}
-                                            {/*<tr>
-                                                <td>Awesome Granite Bacon</td>
-                                                <td>Kids</td>
-                                                <td>2020-11-23T20:20:54.245Z</td>
-                                                <td>
-                                                    <div className='boton'>
-                                                        <button>Ver</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Awesome Granite Bacon</td>
-                                                <td>Kids</td>
-                                                <td>2020-11-23T20:20:54.245Z</td>
-                                                <td>
-                                                    <div className='boton'>
-                                                        <button>Ver</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Awesome Granite Bacon</td>
-                                                <td>Kids</td>
-                                                <td>2020-11-23T20:20:54.245Z</td>
-                                                <td>
-                                                    <div className='boton'>
-                                                        <button>Ver</button>
-                                                    </div>
-                                                </td>
-                                            </tr>*/}
+                                        <tbody ref={tabla}>
                                         </tbody>
                                     </table>
+                                    
                                     <table className='table2'>
                                         <thead>
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Categoría</th>
+                                                <th>Marca</th>
                                                 <th>Fecha</th>
-                                                <th>Acciones</th>
+                                                <th>Precio</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            ${tabla}
-                                            {/*<tr>
-                                                <td>Awesome Granite Bacon</td>
-                                                <td>Kids</td>
-                                                <td>2020-11-23T20:20:54.245Z</td>
-                                                <td>
-                                                    <div className='boton'>
-                                                        <button>Ver</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Awesome Granite Bacon</td>
-                                                <td>Kids</td>
-                                                <td>2020-11-23T20:20:54.245Z</td>
-                                                <td>
-                                                    <div className='boton'>
-                                                        <button>Ver</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Awesome Granite Bacon</td>
-                                                <td>Kids</td>
-                                                <td>2020-11-23T20:20:54.245Z</td>
-                                                <td>
-                                                    <div className='boton'>
-                                                        <button>Ver</button>
-                                                    </div>
-                                                </td>
-                                            </tr>*/}
+                                        <tbody ref={tabla2}>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div ref={cerrarSesion}>
-                        <h1>Cerrando sesión</h1>
                     </div>
                 </div>
             </div>
