@@ -13,6 +13,37 @@ import iconoLogout from './logout.png';
 
  const CrearProducto = () => {
 
+    let bd_usuarios = [
+        {
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjIzMTAzN2UxNmQ2MDAxNzZhMmFjNCIsInJvbGUiOiJBRE1JTiIsImV4cCI6MTYzOTQxOTI1MiwiaWF0IjoxNjM5MzMyODUyfQ.857Fr5RC6CKfG6kKh864XWYsL2aUTaoJwgJzngiooS4",
+            role: "ADMIN",
+            array_productos: [
+                {
+                    "isActive": true,
+                    "product_name": "ssss",
+                    "description": "ssssss",
+                    "price": 15,
+                    "category": "sssss",
+                    "brand": "ssssss",
+                    "sku": "e9cbfac1-301a-42c3-b94a-711a39dc7ed1",
+                    "image": "sss"
+                },
+                {
+                    "isActive": true,
+                    "product_name": "ssss",
+                    "description": "ssssss",
+                    "price": 15,
+                    "category": "sssss",
+                    "brand": "ssssss",
+                    "sku": "e9cbfac1-301a-42c3-b94a-711a39dc7ed1",
+                    "image": "sss"
+                }
+            ]
+        }
+    ];
+
+     window.localStorage.setItem("bd_usuario", JSON.stringify(bd_usuarios));
+
     const [datos, setDatos] = useState({});
     const [token] = useState(window.localStorage.getItem("token"));
     const [infoApi, setInfoApi] = useState([]); // Va a guardar los objetos que se envía a la API por metodo post
