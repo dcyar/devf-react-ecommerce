@@ -48,6 +48,7 @@ p{
 p>a{
     color: #3BB77E;
     cursor: pointer;
+    text-decoration: none;
 }
 p>a:active{
     color: #ffc107
