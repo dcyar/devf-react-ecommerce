@@ -7,6 +7,7 @@ import {
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
 import ProductDetail from "../views/ProductDetail";
+import Navbar from "../components/Navbar"
 
 /*
 Login
@@ -18,6 +19,7 @@ Profile (opcional - ruta protegida)
 function Routes() {
   return (
     <Router>
+      <Navbar/>
       <Switch>
         <Route exact path="/">
           <h1>Home <br /> <h3>Listado de productos...</h3> </h1>
