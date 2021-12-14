@@ -4,16 +4,13 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
-
-/*
-Login
-Registro
-Crear-producto (ruta protegida)
-Profile (opcional - ruta protegida)
-*/
+import ProductDetail from "../views/ProductDetail";
+import PageNotFound from "../views/PageNotFound";
+import Login from "../views/Login";
+import Register from "../views/Register";
+import Logout from "../components/Logout";
 
 function Routes() {
   return (
@@ -22,34 +19,15 @@ function Routes() {
         <Route exact path="/">
           <h1>Home <br /> <h3>Listado de productos...</h3> </h1>
         </Route>
-        <Route exact path="/login">
-          <h1>Login</h1>
-        </Route>
-        <Route exact path="/registro">
-          <h1>Registro</h1>
-        </Route>
-        <Route exact path="/crear-producto">
-          <CrearProducto />
-        </Route>
-        <Route exact path="/profile">
-          <Profile />
-        </Route>
-        <Route exact path="/:pid">
-          <DetalleProducto />
-        </Route>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/registrarse" component={Register} />
+        <Route exact path="/crear-producto" component={CrearProducto} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/productos/:pid" component={ProductDetail} />
+        <Route exact path="/logout" component={Logout} />
+        <Route path="*" component={PageNotFound} />
       </Switch>
     </Router>
-  );
-}
-
-function DetalleProducto() {
-  let { pid } = useParams();
-
-  return(
-    <>
-      <h1>Detalle Producto</h1>
-      <h2>Producto con id: {pid} </h2>
-    </>
   );
 }
 
