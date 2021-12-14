@@ -1,10 +1,11 @@
+import { UserProvider } from "./context/userContext";
 import Routes from "./routes";
 
 function App() {
   return (
-    <div className="App">
+    <UserProvider>
       <Routes />
-    </div>
+    </UserProvider>
   );
 }
 

@@ -7,28 +7,28 @@ import { useHistory } from 'react-router-dom';
 export default function FormularioRegister() {
 
     const history = useHistory()
-    const registerUser=(datos)=>{
-       //se hace post a la api para registrar al usuario
-       axios
-          .post("https://ecomerce-master.herokuapp.com/api/v1/signup", datos)
-          .then(response =>{
-              if(response.status===200){
-                  //aca se puede poner una  notificacion(toastr)
-                  //por ahora solo se redireccionara a login
-                  history.push("/login")
+    const registerUser = (datos) => {
+        //se hace post a la api para registrar al usuario
+        axios
+            .post("https://ecomerce-master.herokuapp.com/api/v1/signup", datos)
+            .then(response => {
+                if (response.status === 200) {
+                    //aca se puede poner una  notificacion(toastr)
+                    //por ahora solo se redireccionara a login
+                    history.push("/login")
 
-              }else{
-                  //tener una notificaion de cual es el error(xq no se registro)
-              }
-           console.log(response.data);
-       }).catch(error=>{
-           console.log(error);
-       })
+                } else {
+                    //tener una notificaion de cual es el error(xq no se registro)
+                }
+                console.log(response.data);
+            }).catch(error => {
+                console.log(error);
+            })
     }
-    const {inputs, handleInput, handleSubmit}=useForm(registerUser, {})
+    const { inputs, handleInput, handleSubmit } = useForm(registerUser, {})
     return (
         <div>
-             <form onSubmit={handleSubmit} className="register">
+            <form onSubmit={handleSubmit} className="register">
                 <h1>Registrarse</h1>
                 <p>Por favor complete la siguiente informacion</p>
 
@@ -121,15 +121,15 @@ export default function FormularioRegister() {
                             id="remember"
                         />
                         <label htmlFor="remember">Estoy de acuerdo con los términos y política</label>
-                        
+
                     </div>
                     <button className="btn" type="submit">
                         Registrarse
                     </button>
-                   <div>
-                       <spam className='cuenta'>¿Ya tienes una cuenta? <Link to="/login">Acesso</Link></spam>
-                   </div>
-    
+                    <div>
+                        <span className='cuenta'>¿Ya tienes una cuenta? <Link to="/login">Acesso</Link></span>
+                    </div>
+
                 </div>
             </form>
         </div>
