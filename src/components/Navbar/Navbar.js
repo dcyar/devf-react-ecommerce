@@ -8,6 +8,7 @@ import search from '../../img/search.png';
 
 
 export default function Navbar() {
+    const token = window.localStorage.getItem('token');
     return (
         <div className='navbar'>
             <div className='nav_search'>
@@ -18,14 +19,27 @@ export default function Navbar() {
                 </div>
             </div>
             <div className='nav_options'>
-                <div className='nav_icon'>
-                    <img src={account} className='icon' alt='account'></img>
-                    <Link to='/cuenta'>Cuenta</Link>
-                </div>
-                <div className='nav_icon'>
-                    <img src={cart} className='icon' alt='cart'></img>
-                    <Link to='/carrito'>Carrito</Link>
-                </div>
+                {token ? 
+                    <>
+                    <div className='nav_icon'>
+                        <img src={account} className='icon' alt='profile'></img>
+                        <Link to='/profile'>Bienvenido</Link>
+                    </div>
+                    <div className='nav_icon'>
+                        <img src={cart} className='icon' alt='cart'></img>
+                        <Link to='/carrito'>Carrito</Link>
+                    </div>
+                    </>
+                    :
+                    <>
+                    <div className='nav_icon'>
+                        <Link to='/login'>Login</Link>
+                    </div>
+                    <div className='nav_icon'>
+                    <Link to='/registrarse'>Registro</Link>
+                    </div>
+                    </>
+                }
             </div>
         </div>
     )
