@@ -1,57 +1,19 @@
 import React, {useRef, useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import swal from "sweetalert2";
 import withProtection from '../../utils/withProtection';
 import useForm from '../../hooks/useForm';
 import './crearProducto.css';
-import icono from './producto2.png';
-import iconoResgistrarProducto from './registrar2.png';
-import iconoLogout from './logout.png';
+import icono from '../../assets/img/producto2.png';
+import iconoResgistrarProducto from '../../assets/img/registrar2.png';
+import iconoLogout from '../../assets/img/logout.png';
 
  const CrearProducto = () => {
-
-    let bd_usuarios = [
-        {
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjIzMTAzN2UxNmQ2MDAxNzZhMmFjNCIsInJvbGUiOiJBRE1JTiIsImV4cCI6MTYzOTQxOTI1MiwiaWF0IjoxNjM5MzMyODUyfQ.857Fr5RC6CKfG6kKh864XWYsL2aUTaoJwgJzngiooS4",
-            role: "ADMIN",
-            array_productos: [
-                {
-                    "isActive": true,
-                    "product_name": "ssss",
-                    "description": "ssssss",
-                    "price": 15,
-                    "category": "sssss",
-                    "brand": "ssssss",
-                    "sku": "e9cbfac1-301a-42c3-b94a-711a39dc7ed1",
-                    "image": "sss"
-                },
-                {
-                    "isActive": true,
-                    "product_name": "ssss",
-                    "description": "ssssss",
-                    "price": 15,
-                    "category": "sssss",
-                    "brand": "ssssss",
-                    "sku": "e9cbfac1-301a-42c3-b94a-711a39dc7ed1",
-                    "image": "sss"
-                }
-            ]
-        }
-    ];
-
-     window.localStorage.setItem("bd_usuario", JSON.stringify(bd_usuarios));
 
     const [datos, setDatos] = useState({});
     const [token] = useState(window.localStorage.getItem("token"));
     const [infoApi, setInfoApi] = useState([]); // Va a guardar los objetos que se envía a la API por metodo post
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     const crearProducto = useRef();
     const productos = useRef();
@@ -238,7 +200,7 @@ import iconoLogout from './logout.png';
                                     </div>
                                     <div className='input'>
                                         <label>Imagen (url) *</label>
-                                        <input type='text' id="imagen" name="imagen" onChange={handleInput} value={inputs.imagen} />
+                                        <input type='url' id="imagen" name="imagen" onChange={handleInput} value={inputs.imagen} />
                                     </div>
                                     <div className='boton' type="submit">
                                         <button>Guardar</button>
