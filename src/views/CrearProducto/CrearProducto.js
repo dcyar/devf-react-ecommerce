@@ -37,10 +37,8 @@ import iconoLogout from '../../assets/img/logout.png';
     }
     
     useEffect(() => {
-        //console.log(crearProducto.current.style);
         crearProducto.current.style.display='none';
         productos.current.style.display='none';
-        
 
         const info = {
             "isActive": true,
@@ -80,7 +78,7 @@ import iconoLogout from '../../assets/img/logout.png';
                 .then((response) => {
                     console.log(JSON.stringify(response.data));
                     setInfoApi([...infoApi, response.data]);
-                    console.log("tabla",tabla.current);
+                    //console.log("tabla",tabla.current);
                     limpiar();
                     swal.fire({
                         title: "Registro exitoso",
@@ -88,7 +86,6 @@ import iconoLogout from '../../assets/img/logout.png';
                         timer: "2000",
                         showConfirmButton: false,
                     })
-                    //inputNombre.value = " ";
                 })
                 .catch((error) => {
                     console.log(error);
@@ -101,7 +98,7 @@ import iconoLogout from '../../assets/img/logout.png';
                 });
         }
     };
-    console.log("Info api",infoApi);
+    //console.log("Info api",infoApi);
     let html = "";
     if (infoApi[0] != null) {
         for (let i = 0; i < infoApi.length; i++) {
@@ -122,7 +119,6 @@ import iconoLogout from '../../assets/img/logout.png';
         tabla.current.innerHTML = html;
         tabla2.current.innerHTML = html;
     }
-
     
     const { inputs, handleInput, handleSubmit } = useForm(sendData, datos);
     
