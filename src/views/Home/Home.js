@@ -13,7 +13,7 @@ const Home = () => {
   }, [])
 
   return (
-    <section className='container'>
+    <section className='container-fluid'>
       {/* <div className='hero'>
         <div className="hero-item hero-item-1">1</div>
         <div className="hero-item hero-item-2">2</div>
