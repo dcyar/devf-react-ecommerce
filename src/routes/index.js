@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Navbar from '../components/Navbar'
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
 import ProductDetail from "../views/ProductDetail";
@@ -15,6 +16,7 @@ import Logout from "../components/Logout";
 function Routes() {
   return (
     <Router>
+      <Navbar/>
       <Switch>
         <Route exact path="/">
           <h1>Home <br /> <h3>Listado de productos...</h3> </h1>
