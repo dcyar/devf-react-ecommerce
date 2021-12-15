@@ -1,10 +1,13 @@
+import { ShopCartProvider } from "./context/cartContext";
 import { UserProvider } from "./context/userContext";
 import Routes from "./routes";
 
 function App() {
   return (
     <UserProvider>
-      <Routes />
+      <ShopCartProvider>
+        <Routes />
+      </ShopCartProvider>
     </UserProvider>
   );
 }
