@@ -138,7 +138,7 @@ export default function FormularioRegister() {
                         <label htmlFor="remember">Estoy de acuerdo con los términos y política</label>
                         
                     </div>
-                    <button  className="btn" type="submit">
+                    <button  className="btn-register" type="submit">
                         Registrarse
                     </button>
                    <div>
