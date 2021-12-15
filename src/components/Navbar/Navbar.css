@@ -4,6 +4,10 @@
     height: 125px;
     align-items: center;
     justify-content: space-evenly;
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    color: #7E7E7E;
 }
 
 .nav_search {
@@ -42,4 +46,30 @@
     height: 30px;
     width: 30px;
     margin-right: 10px;
+}
+
+.nav_link, .nav_button {
+    text-decoration: none;
+}
+
+.nav_link {
+    color: #7E7E7E;
+}
+
+.nav_button {
+    border-radius: 10px;
+    Padding: 10px;
+    color: white;
+}
+
+#logout_button {
+    background-color: rgb(207, 26, 26);
+}
+
+#login_button {
+    background-color: rgb(9, 129, 9);
+}
+
+#signin_button {
+    background-color: rgb(67, 67, 247);
 }
