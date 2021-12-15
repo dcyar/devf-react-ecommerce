@@ -19,8 +19,22 @@ import iconoLogout from '../../assets/img/logout.png';
     const productos = useRef();
     const formulario = useRef();
     const inputNombre = useRef();
+    const inputDescripcion = useRef();
+    const inputPrecio = useRef();
+    const inputCategoria = useRef();
+    const inputMarca = useRef();
+    const inputImagen = useRef();
     const tabla = useRef();
     const tabla2 = useRef();
+
+    const limpiar = () => {
+        inputNombre.current.value="";
+        inputDescripcion.current.value="";
+        inputPrecio.current.value="";
+        inputCategoria.current.value="";
+        inputMarca.current.value="";
+        inputImagen.current.value="";
+    }
     
     useEffect(() => {
         //console.log(crearProducto.current.style);
@@ -67,6 +81,7 @@ import iconoLogout from '../../assets/img/logout.png';
                     console.log(JSON.stringify(response.data));
                     setInfoApi([...infoApi, response.data]);
                     console.log("tabla",tabla.current);
+                    limpiar();
                     swal.fire({
                         title: "Registro exitoso",
                         icon: "success",
@@ -150,25 +165,25 @@ import iconoLogout from '../../assets/img/logout.png';
                     <div ref={crearProducto}>
                         <div className='crearProducto'>
                             <div className='crearProducto__header'>
-                                <h3>Crear producto</h3>
+                                <h3 className='crearProducto__titulo'>Crear producto</h3>
                             </div>
                             <div className='crearProducto__body'>
-                                <form onSubmit={handleSubmit} ref={formulario} >
-                                    <div className='input'>
-                                        <label>Nombre *</label>
-                                        <input type='text' id="nombre" name="nombre" onChange={handleInput} value={inputs.nombre} ref={inputNombre} />
+                                <form className='crearProducto__formulario' onSubmit={handleSubmit} ref={formulario} >
+                                    <div className='crearProducto__input'>
+                                        <label className='crearProducto__label'>Nombre *</label>
+                                        <input className='crearProducto__inputNombre' type='text' id="nombre" name="nombre" onChange={handleInput} value={inputs.nombre} ref={inputNombre} />
                                     </div>
-                                    <div className='input'>
-                                        <label>Descripción *</label>
-                                        <input type='text' id="descripcion" name="descripcion" onChange={handleInput} value={inputs.descripcion} />
+                                    <div className='crearProducto__input'>
+                                        <label className='crearProducto__label'>Descripción *</label>
+                                        <input className='crearProducto__inputDescripcion' type='text' id="descripcion" name="descripcion" onChange={handleInput} value={inputs.descripcion} ref={inputDescripcion} />
                                     </div>
-                                    <div className='input'>
-                                        <label>Precio *</label>
-                                        <input type='number' id="precio" name="precio" onChange={handleInput} value={inputs.precio} />
+                                    <div className='crearProducto__input'>
+                                        <label className='crearProducto__label'>Precio *</label>
+                                        <input className='crearProducto__inputPrecio' type='number' id="precio" name="precio" onChange={handleInput} value={inputs.precio} ref={inputPrecio} />
                                     </div>
-                                    <div className='input'>
-                                        <label>Categoría *</label>
-                                        <select name="categoria" id="categoria" onChange={handleInput} value={inputs.categoria} >
+                                    <div className='crearProducto__input'>
+                                        <label className='crearProducto__label'>Categoría *</label>
+                                        <select className='crearProducto__select' name="categoria" id="categoria" onChange={handleInput} value={inputs.categoria} ref={inputCategoria} >
                                             <option value="">--Seleccione--</option>
                                             <option value="Books">Books</option>
                                             <option value="Movies">Movies</option>
@@ -194,13 +209,13 @@ import iconoLogout from '../../assets/img/logout.png';
                                             <option value="Industrial">Industrial</option>
                                         </select>
                                     </div>
-                                    <div className='input'>
-                                        <label>Marca *</label>
-                                        <input type='text' id="marca" name="marca" onChange={handleInput} value={inputs.marca} />
+                                    <div className='crearProducto__input'>
+                                        <label className='crearProducto__label'>Marca *</label>
+                                        <input className='crearProducto__inputMarca' type='text' id="marca" name="marca" onChange={handleInput} value={inputs.marca} ref={inputMarca} />
                                     </div>
-                                    <div className='input'>
-                                        <label>Imagen (url) *</label>
-                                        <input type='url' id="imagen" name="imagen" onChange={handleInput} value={inputs.imagen} />
+                                    <div className='crearProducto__input'>
+                                        <label className='crearProducto__label'>Imagen (url) *</label>
+                                        <input className='crearProducto__inputImagen' type='url' id="imagen" name="imagen" onChange={handleInput} value={inputs.imagen} ref={inputImagen} />
                                     </div>
                                     <div className='boton' type="submit">
                                         <button>Guardar</button>
