@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import useForm from "../../../hooks/useForm"
 import axios from 'axios'
 // import { useUserContext } from '../../../context/userContext'
+import swal from 'sweetalert2';
 
 
 export default function Formulario() {
@@ -32,6 +33,12 @@ export default function Formulario() {
             history.push("/");
         }).catch((error)=>{
             console.log(error);
+            swal.fire({
+                title: "El correo y/o contraseña no es correcta, vuelva a intentarlo.",
+                icon: "error",
+                timer: "2000",
+                showConfirmButton: false,
+            });
 
             //aca se podria poner notificacion(hubo un errro)
         })
