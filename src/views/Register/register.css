@@ -32,13 +32,13 @@
      border-color: #3BB77E;
  }
  
- h1{ 
+ .register h1{ 
      
      font-size: 48px;
      color: #253D4E;
      margin-bottom: -2%;
  }
- p{
+ .register p{
      color: #7e7e7e;
      font-size: 1rem;
      font-weight: 400;
@@ -50,8 +50,8 @@
  }
  
  
- button{
-     border-radius: 10px;
+ .btn-register{
+     border-radius: 15px;
      font-size: 16px;
      padding: 15px 40px;
      background: #253D4E;
@@ -64,11 +64,14 @@
      margin-bottom: 50px;
      transition: .2s;
      
+     
  }
+ .btn-register:active{
+    background-color: #3BB77E;
+    width: 200px;  
+}
  
- 
- input[type='text'],
- input[type='password']{
+ .register-contenedor-input input{
      font-size: 16px;
      width: 100%;
      border: 1px solid #ececec;
@@ -104,20 +107,15 @@
      color: #ffc107;
  }
  
- 
- .btn:active{
-     background-color: #3BB77E;
-     width: 150px; 
- }
  /* //checkbox */
- input[type='checkbox'] + label{
+.check input[type='checkbox'] + label{
     display: block;
  }
- input[type='checkbox']{
+.register-footer input[type='checkbox']{
      display: none;
      
  }
- input[type='checkbox'] + label:before{
+.register-footer input[type='checkbox'] + label:before{
     content: '\2714';
     border:0.1em solid #b6b6b6 ;
     border-radius: 0.2em;
@@ -131,12 +129,12 @@
     color: transparent;
     transition: .2s;
  }
- input[type='checkbox']:checked + label::before{
+.register-footer input[type='checkbox']:checked + label::before{
      background-color: #3BB77E;
      border-color: #3BB77E;
      color: #fff;
  }
- input[type='checkbox']+ label:active:before{
+.check input[type='checkbox']+ label:active:before{
      transform: scale(0);
  }
  
