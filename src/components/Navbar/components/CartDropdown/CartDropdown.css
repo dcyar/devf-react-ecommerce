@@ -19,6 +19,7 @@
   font-size: 18px;
   color: rgb(148, 148, 148);
   font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .total {
@@ -59,4 +60,5 @@
   color: #fff;
   padding: 10px 20px;
   cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
 }
