@@ -44,3 +44,9 @@
   background-color: #fc9135;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .product-count div {
+    z-index: -1;
+  }
+}
