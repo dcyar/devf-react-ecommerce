@@ -112,7 +112,7 @@ export default function FormularioRegister() {
                         <label htmlFor="password"></label>
                         <input
                             type="password"
-                            id="password"
+                            id="passwordConfirmation"
                             name="password"
                             placeholder="Confirmacion de contraseña*"
                             onChange={handleInput}
