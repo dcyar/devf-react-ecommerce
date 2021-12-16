@@ -1,19 +1,18 @@
-import React, {useRef, useEffect, useState} from 'react';
-import { Link } from "react-router-dom";
+import React, { useRef, useEffect, useState } from 'react';
 import axios from "axios";
 import swal from "sweetalert2";
-import withProtection from '../../utils/withProtection';
+import { useUserContext } from '../../context/userContext';
 import useForm from '../../hooks/useForm';
-import './crearProducto.css';
-import icono from '../../assets/img/producto2.png';
+import withProtection from '../../utils/withProtection';
 import iconoResgistrarProducto from '../../assets/img/registrar2.png';
-import iconoLogout from '../../assets/img/logout.png';
+import icono from '../../assets/img/producto2.png';
+import './crearProducto.css';
 
- const CrearProducto = () => {
+const CrearProducto = () => {
+    const { token } = useUserContext()
 
     const [datos, setDatos] = useState({});
-    const [token] = useState(window.localStorage.getItem("token"));
-    const [infoApi, setInfoApi] = useState([]); // Va a guardar los objetos que se envía a la API por metodo post
+    const [infoApi, setInfoApi] = useState([]);
 
     const crearProducto = useRef();
     const productos = useRef();
@@ -28,17 +27,17 @@ import iconoLogout from '../../assets/img/logout.png';
     const tabla2 = useRef();
 
     const limpiar = () => {
-        inputNombre.current.value="";
-        inputDescripcion.current.value="";
-        inputPrecio.current.value="";
-        inputCategoria.current.value="";
-        inputMarca.current.value="";
-        inputImagen.current.value="";
+        inputNombre.current.value = "";
+        inputDescripcion.current.value = "";
+        inputPrecio.current.value = "";
+        inputCategoria.current.value = "";
+        inputMarca.current.value = "";
+        inputImagen.current.value = "";
     }
-    
+
     useEffect(() => {
-        crearProducto.current.style.display='none';
-        productos.current.style.display='none';
+        crearProducto.current.style.display = 'none';
+        productos.current.style.display = 'none';
 
         const info = {
             "isActive": true,
@@ -52,7 +51,7 @@ import iconoLogout from '../../assets/img/logout.png';
         };
         setDatos(info);
     }, [])
-    
+
     const sendData = (datos) => {
         //Toda la lógica de hacer un post
         if (token) {
@@ -98,7 +97,7 @@ import iconoLogout from '../../assets/img/logout.png';
                 });
         }
     };
-    //console.log("Info api",infoApi);
+
     let html = "";
     if (infoApi[0] != null) {
         for (let i = 0; i < infoApi.length; i++) {
@@ -119,41 +118,35 @@ import iconoLogout from '../../assets/img/logout.png';
         tabla.current.innerHTML = html;
         tabla2.current.innerHTML = html;
     }
-    
+
     const { inputs, handleInput, handleSubmit } = useForm(sendData, datos);
-    
+
     const mostrarContenidoCrearProducto = () => {
-        crearProducto.current.style.display='block';
-        productos.current.style.display='none';
+        crearProducto.current.style.display = 'block';
+        productos.current.style.display = 'none';
     }
 
     const mostrarContenidoProductos = () => {
-        productos.current.style.display='block';
-        crearProducto.current.style.display='none';
+        productos.current.style.display = 'block';
+        crearProducto.current.style.display = 'none';
     }
-    
+
     return (
         <>
             <div className='container'>
                 <div className='menu'>
                     <ul className='menu__lista parent' tabIndex="0">
                         <li className='item one' tabIndex="1" onClick={mostrarContenidoCrearProducto}>
-                            <img src={iconoResgistrarProducto} width="22px" />
-                            <a>
+                            <img src={iconoResgistrarProducto} width="22px" alt='' />
+                            <span>
                                 Crear Producto
-                            </a>
+                            </span>
                         </li>
                         <li className='item two' tabIndex="2" onClick={mostrarContenidoProductos} >
-                            <img src={icono} width="22px" />
-                            <a>
+                            <img src={icono} width="22px" alt='' />
+                            <span>
                                 Productos
-                            </a>
-                        </li>
-                        <li className='item three' tabIndex="3" >
-                            <img src={iconoLogout} width="22px" />
-                            <a>
-                                <Link to="/">Cerrar sesión</Link>
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -240,7 +233,7 @@ import iconoLogout from '../../assets/img/logout.png';
                                         <tbody ref={tabla}>
                                         </tbody>
                                     </table>
-                                    
+
                                     <table className='table2'>
                                         <thead>
                                             <tr>

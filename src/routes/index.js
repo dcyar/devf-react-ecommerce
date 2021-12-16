@@ -19,7 +19,7 @@ function Routes() {
       <Navbar/>
       <Switch>
         <Route exact path="/">
-          <h1>Home <br /> <h3>Listado de productos...</h3> </h1>
+          <h1>Home <br /> Listado de productos... </h1>
         </Route>
         <Route exact path="/login" component={Login} />
         <Route exact path="/registrarse" component={Register} />
