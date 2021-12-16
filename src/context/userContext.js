@@ -28,8 +28,6 @@ function UserProvider(props) {
   const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('role')
-
-
   }
 
   const value = {
