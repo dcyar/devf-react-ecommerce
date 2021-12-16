@@ -1,0 +1,16 @@
+.footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 576px) {
+  .footer {
+    flex-direction: column;
+  }
+}
