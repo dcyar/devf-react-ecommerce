@@ -1,14 +1,15 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useUserContext } from '../../context/userContext';
 import { useShopCartContext } from '../../context/cartContext';
 import CartDropdown from './components/CartDropdown';
+import { useProductContext } from '../../context/productsContext';
 import logo from '../../assets/img/logo.svg';
 import './Navbar.css';
-import { useProductContext } from '../../context/productsContext';
 
 export default function Navbar() {
-    const { currentUser } = useUserContext();
+    const history = useHistory()
+    const { currentUser, logout } = useUserContext();
     const { shopCart } = useShopCartContext();
     const { setSearch } = useProductContext();
 
@@ -26,6 +27,11 @@ export default function Navbar() {
         if (key === 'Enter') {
             setSearch(target.value)
         }
+    }
+
+    const handleLogout = () => {
+        logout()
+        history.push('/')
     }
 
     return (
@@ -54,7 +60,7 @@ export default function Navbar() {
                             }
                         </div>
                         <div className='nav_icon'>
-                            <Link to='/logout' className='nav_button' id='logout_button'>Logout</Link>
+                            <span onClick={handleLogout} className='nav_button' id='logout_button'>Logout</span>
                         </div>
                     </>
                     :
