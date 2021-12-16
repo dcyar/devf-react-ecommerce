@@ -137,6 +137,39 @@
 .check input[type='checkbox']+ label:active:before{
      transform: scale(0);
  }
+
+ .role-select{
+    border:0;
+    background:#253D4E;
+    border-radius:7px;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    padding-left:20px;
+    width:100%;
+}
+.register-contenedor-select{
+    position:relative;
+    display: flex;
+    height:3em;
+    line-height:3;
+    margin-top:15px;
+    padding:3px;
+}
+.register-contenedor-select::after{
+     content:'\25BC';
+     position:absolute;
+     right:0;
+     padding:0 1em;
+     background:#253D4E;
+     cursor:pointer;
+     pointer-events:none;
+     transition:.25s all ease;
+     border-radius:7px;
+}
+.register-contenedor-select:hover::after{
+   color:#3BB77E;
+}
  
  
  
