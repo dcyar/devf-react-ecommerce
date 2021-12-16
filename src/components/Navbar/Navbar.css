@@ -3,31 +3,28 @@
     width: 100vw;
     height: 125px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: fixed; 
     top: 0; 
     left: 0;
     color: #7E7E7E;
-}
-
-.nav_search {
-    display: inline-flex;
-    width: 70%;
-    justify-content: space-around;
+    align-content: center;
 }
 
 .logo {
     height: 55px;
+    margin-left: 10px;
 }
 
 .searchbar {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
-    padding: 15px;
+    flex-basis: 50%;
+    flex-shrink: 2;
     border: 2px solid #BCE3C9;
     border-radius: 5px;
+    margin: 0 10px;
 }
 
 .searchbar input {
@@ -37,15 +34,16 @@
 
 .nav_options {
     display: inline-flex;
-    width: 30%;
     justify-content: space-evenly;
     align-items: baseline;
+    flex-shrink: 0;
+    min-width: 35%;
 }
 
 .icon {
-    height: 30px;
-    width: 30px;
+    font-size: 25px;
     margin-right: 10px;
+    color: #7E7E7E;
 }
 
 .nav_link, .nav_button {
@@ -72,4 +70,57 @@
 
 #signin_button {
     background-color: rgb(67, 67, 247);
+}
+
+.colapse_nav {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    display: none;
+}
+
+.searchbar_hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar { 
+        justify-content: space-evenly;
+    }
+
+    .nav_options {
+        flex-direction: column;
+        position: fixed;
+        left: 100%;
+        transition: left 0.3s;
+        top: 125px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        height: calc(100% - 125px); 
+        overflow-y: auto;
+        background-color: #BCE3C9;
+    }
+
+    .colapse_nav {
+        display: block;
+    }
+
+    .visible {
+        left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .searchbar {
+        display: none;
+    }
+    .searchbar_hidden {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid #7E7E7E;
+        border-radius: 5px;  
+        background-color: white;
+    }
 }
