@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductCount from './components/ProductCount'
 import './ProductDetail.css'
 import ProductNotFound from './components/ProductNotFound';
+import { useUserContext } from '../../context/userContext';
 
 const ProductDetail = () => {
+  const { currentUser } = useUserContext()
   const [loading, setLoading] = useState(false)
   const [product, setProduct] = useState(null)
 
@@ -27,7 +29,7 @@ const ProductDetail = () => {
       {
         loading
           ? <div className="loading">
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
           </div>
           : (!product
             ? <ProductNotFound />
@@ -51,11 +53,14 @@ const ProductDetail = () => {
                   <li>SKU: {product.sku}</li>
                   <li>XPD: {(new Date(product.createdAt).toLocaleDateString())}</li>
                 </ul>
-                <ProductCount product={product} isActive={product.isActive} />
-                <div className="buttons">
-                  <button className="btn btn-green">Iniciar sesion</button>
-                  <button className="btn btn-blue">Registrarse</button>
-                </div>
+                {
+                  currentUser
+                    ? <ProductCount product={product} isActive={product.isActive} />
+                    : <div className="buttons">
+                      <Link to="/login" className="btn btn-green">Iniciar sesion</Link>
+                      <Link to="/registrarse" className="btn btn-blue">Registrarse</Link>
+                    </div>
+                }
               </div>
             </div>
           )

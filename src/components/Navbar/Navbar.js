@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/userContext';
+import { useShopCartContext } from '../../context/cartContext';
+import CartDropdown from './components/CartDropdown';
 import logo from '../../assets/img/logo.svg';
 import cart from '../../assets/img/cart.png';
+import crearProducto from '../../assets/img/registrar3.png';
 import account from '../../assets/img/account.png';
 import search from '../../assets/img/search.png';
 import './Navbar.css';
-import CartDropdown from './components/CartDropdown';
-import { useShopCartContext } from '../../context/cartContext';
 
 
 export default function Navbar() {
@@ -29,7 +30,6 @@ export default function Navbar() {
                     <>
                         <div className='nav_icon'>
                             <img src={cart} className='icon' alt='cart'></img>
-
                             <span onClick={() => setDropdownCart(!dropdownCart)}>Carrito ({shopCart.length})</span>
                             {
                                 dropdownCart && <CartDropdown />
@@ -38,6 +38,10 @@ export default function Navbar() {
                         <div className='nav_icon'>
                             <img src={account} className='icon' alt='profile'></img>
                             <Link to='/profile'>Bienvenido</Link>
+                        </div>
+                        <div className='nav_icon'>
+                            <img src={crearProducto} className='icon' alt='icono de crear producto' />
+                            <Link to='/crear-producto'>Crear producto</Link>
                         </div>
                     </>
                     :

@@ -1,31 +1,40 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import useForm from '../../../hooks/useForm'
+import swal from 'sweetalert2';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom';
+import useForm from '../../../hooks/useForm'
 
 export default function FormularioRegister() {
-
     const history = useHistory()
+
     const registerUser = (datos) => {
-        //se hace post a la api para registrar al usuario
         axios
-            .post("https://ecomerce-master.herokuapp.com/api/v1/signup", datos)
+            .post(`${process.env.REACT_APP_API_URL}/signup`, datos)
             .then(response => {
                 if (response.status === 200) {
-                    //aca se puede poner una  notificacion(toastr)
-                    //por ahora solo se redireccionara a login
-                    history.push("/login")
-
+                    swal.fire({
+                        title: "Registro exitoso",
+                        icon: "success",
+                        timer: "2000",
+                        showConfirmButton: false,
+                        didClose: () => history.push('/login')
+                    });
                 } else {
-                    //tener una notificaion de cual es el error(xq no se registro)
+                    throw new Error('Algo ha fallado')
                 }
-                console.log(response.data);
             }).catch(error => {
-                console.log(error);
+                swal.fire({
+                    title: "Complete todos los campos",
+                    icon: "warning",
+                    timer: "2000",
+                    showConfirmButton: false,
+                });
             })
     }
+
     const { inputs, handleInput, handleSubmit } = useForm(registerUser, {})
+
     return (
         <div>
             <form onSubmit={handleSubmit} className="register">
@@ -103,7 +112,7 @@ export default function FormularioRegister() {
                         <label htmlFor="password"></label>
                         <input
                             type="password"
-                            id="password"
+                            id="passwordConfirmation"
                             name="password"
                             placeholder="Confirmacion de contraseña*"
                             onChange={handleInput}
@@ -121,15 +130,13 @@ export default function FormularioRegister() {
                             id="remember"
                         />
                         <label htmlFor="remember">Estoy de acuerdo con los términos y política</label>
-
                     </div>
-                    <button className="btn" type="submit">
+                    <button className="btn-register" type="submit">
                         Registrarse
                     </button>
                     <div>
                         <span className='cuenta'>¿Ya tienes una cuenta? <Link to="/login">Acesso</Link></span>
                     </div>
-
                 </div>
             </form>
         </div>

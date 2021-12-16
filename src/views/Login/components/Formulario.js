@@ -1,25 +1,32 @@
 import React from 'react'
 import axios from 'axios'
+import swal from 'sweetalert2';
 import { Link, useHistory } from 'react-router-dom'
-import useForm from "../../../hooks/useForm"
 import { useUserContext } from '../../../context/userContext';
+import useForm from "../../../hooks/useForm"
+
 
 export default function Formulario() {
     const history = useHistory();
-    const { setToken } = useUserContext();
+    const { setToken, setRole } = useUserContext();
 
     const login = (datos) => {
         axios
             .post(`${process.env.REACT_APP_API_URL}/login`, datos)
             .then(response => {
                 localStorage.setItem('token', response.data.token)
+                localStorage.setItem('role', response.data.role)
                 setToken(response.data.token)
+                setRole(response.data.role)
 
                 history.push("/");
             }).catch((error) => {
-                console.log(error);
-
-                //aca se podria poner notificacion(hubo un errro)
+                swal.fire({
+                    title: "El correo y/o contraseña no es correcta, vuelva a intentarlo.",
+                    icon: "error",
+                    timer: "2000",
+                    showConfirmButton: false,
+                });
             })
     }
 
