@@ -29,7 +29,7 @@ function ShopCartProvider(props) {
       })
       setShopCart(mod)
     } else {
-      setShopCart([...shopCart, payload])
+      setShopCart([...shopCart, {...payload, subtotal:((payload.count)*(payload.price))}])
     }
   }
 
