@@ -10,7 +10,7 @@ import './Navbar.css';
 export default function Navbar() {
     const { shopCart } = useShopCartContext();
     const { currentUser } = useUserContext();
-    const [dropdownCart, setDropdownCart] = useState(true)
+    const [dropdownCart, setDropdownCart] = useState(false)
     const nav_options = useRef();
     const toggle = () => {
         if (nav_options.current.className === 'nav_options') {

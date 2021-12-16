@@ -7,19 +7,13 @@ const Home = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    axios.get('https://ecomerce-master.herokuapp.com/api/v1/item')
-      .then(response => setProducts(response.data))
+    axios.get(`${process.env.REACT_APP_API_URL}/item`)
+      .then(response => setProducts(response.data.slice(0, 10)))
       .catch(err => console.log(err))
   }, [])
 
   return (
-    <section className='container-fluid'>
-      {/* <div className='hero'>
-        <div className="hero-item hero-item-1">1</div>
-        <div className="hero-item hero-item-2">2</div>
-        <div className="hero-item hero-item-3">3</div>
-        <div className="hero-item hero-item-4">4</div>
-      </div> */}
+    <section className='container'>
       <div className="products">
         <h2>Productos Populares</h2>
         <div className="list-products">

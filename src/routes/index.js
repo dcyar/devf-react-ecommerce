@@ -13,6 +13,7 @@ import PageNotFound from "../views/PageNotFound";
 import Login from "../views/Login";
 import Register from "../views/Register";
 import Logout from "../components/Logout";
+import Footer from "../components/Footer/";
 
 function Routes() {
   return (
@@ -28,6 +29,7 @@ function Routes() {
         <Route exact path="/logout" component={Logout} />
         <Route path="*" component={PageNotFound} />
       </Switch>
+      <Footer />
     </Router>
   );
 }
