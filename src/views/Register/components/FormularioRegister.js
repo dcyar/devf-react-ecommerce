@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import useForm from '../../../hooks/useForm'
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert2';
+import axios from 'axios';
+import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import useForm from '../../../hooks/useForm'
 
 export default function FormularioRegister() {
     const history = useHistory()
