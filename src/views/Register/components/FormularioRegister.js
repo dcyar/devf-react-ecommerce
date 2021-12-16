@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import useForm from '../../../hooks/useForm'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert2';
 
 export default function FormularioRegister() {
 
@@ -13,16 +14,30 @@ export default function FormularioRegister() {
           .post("https://ecomerce-master.herokuapp.com/api/v1/signup", datos)
           .then(response =>{
               if(response.status===200){
-                  //aca se puede poner una  notificacion(toastr)
+                  //aca se puede poner una  notificacion(sweetalert2)
+                  swal.fire({
+                    title: "Registro exitoso",
+                    icon: "success",
+                    timer: "2000",
+                    showConfirmButton: false,
+                });
+
                   //por ahora solo se redireccionara a login
                   history.push("/login")
 
               }else{
+                
                   //tener una notificaion de cual es el error(xq no se registro)
               }
            console.log(response.data);
        }).catch(error=>{
            console.log(error);
+           swal.fire({
+            title: "Complete todos los campos",
+            icon: "warning",
+            timer: "2000",
+            showConfirmButton: false,
+        });
        })
     }
     const {inputs, handleInput, handleSubmit}=useForm(registerUser, {})
@@ -123,7 +138,7 @@ export default function FormularioRegister() {
                         <label htmlFor="remember">Estoy de acuerdo con los términos y política</label>
                         
                     </div>
-                    <button className="btn" type="submit">
+                    <button  className="btn-register" type="submit">
                         Registrarse
                     </button>
                    <div>
