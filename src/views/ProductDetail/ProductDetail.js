@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useParams } from "react-router-dom";
 import ProductCount from './components/ProductCount'
-import './ProductDetail.css'
 import ProductNotFound from './components/ProductNotFound';
 import { useUserContext } from '../../context/userContext';
+import Loading from '../../components/Loading/Loading';
+import './ProductDetail.css'
 
 const ProductDetail = () => {
   const { currentUser } = useUserContext()
@@ -28,9 +29,7 @@ const ProductDetail = () => {
     <section className="container">
       {
         loading
-          ? <div className="loading">
-            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-          </div>
+          ? <Loading />
           : (!product
             ? <ProductNotFound />
             : <div className="product">
