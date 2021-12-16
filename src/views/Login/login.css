@@ -1,147 +1,126 @@
-.login-wrap{
-    
-   border: 0;
-   margin: 0;
-   padding: 0;
-   padding-left: 30px;
-   box-sizing: border-box;
+.login-wrap {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  padding-left: 30px;
+  box-sizing: border-box;
 }
 
-
-
-.login{
-    font-family:sans-serif; ;
-    padding-bottom: 150px;
-    padding-top: 150px;
-    box-sizing: border-box;
-    margin: auto;
-
-    
-
+.login {
+  font-family: sans-serif;
+  padding-bottom: 150px;
+  padding-top: 150px;
+  box-sizing: border-box;
+  margin: auto;
 }
-.login-contenedor{
-    width: 80%;
-    padding: 4px;
+.login-contenedor {
+  width: 80%;
+  padding: 4px;
 }
-.login-contenedor-input{
-    margin-top: 15px;
-    padding: 3px;  
-    
+.login-contenedor-input {
+  margin-top: 15px;
+  padding: 3px;
 }
 .login-contenedor-input input:focus-within {
-    border-color: #3BB77E;
+  border-color: #3bb77e;
 }
 
-.login h1{ 
-    
-    font-size: 48px;
-    color: #253D4E;
-    margin-bottom: -2%;
+.login h1 {
+  font-size: 48px;
+  color: #253d4e;
+  margin-bottom: -2%;
 }
-.login p{
-    color: #7e7e7e;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 24px;
-    
+.login p {
+  color: #7e7e7e;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
 }
-.login p>a{
-    color: #3BB77E;
-    cursor: pointer;
-    text-decoration: none;
+.login p > a {
+  color: #3bb77e;
+  cursor: pointer;
+  text-decoration: none;
 }
-.login p>a:active{
-    color: #ffc107
+.login p > a:active {
+  color: #ffc107;
 }
 
 .login-contenedor button {
-    border-radius: 15px;
-    font-size: 16px;
-    padding: 13px 25px;
-    background: #253D4E;
-    color: #fff;
-    border:0;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: .5px;
-    margin-top: 50px;
-    transition: .2s;
-
+  border-radius: 15px;
+  font-size: 16px;
+  padding: 13px 25px;
+  background: #253d4e;
+  color: #fff;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  margin-top: 50px;
+  transition: 0.2s;
 }
-.btn:active{
-    background-color: #3BB77E;
-    width: 150px; 
-}
-
-
-.login-contenedor-input input{
-    font-size: 16px;
-    width: 100%;
-    border: 1px solid #ececec;
-    height: 64px;
-    padding-left: 20px;
-    border-radius: 10px; 
-    outline: none;
-    
+.login .btn:active {
+  background-color: #3bb77e;
+  width: 150px;
 }
 
-.login-footer{
-    margin-top: 15px;
-    font-size: 14px;
-    color: #7e7e7e;
-    align-items: center;
-    display: flex;
-    
-    
-
+.login-contenedor-input input {
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #ececec;
+  height: 64px;
+  padding-left: 20px;
+  border-radius: 10px;
+  outline: none;
 }
 
-.login-footer a{
-    color: #b6b6b6;
-    margin-left: 30%;
-    cursor: pointer;
-    text-decoration: none;
-    
-    
+.login-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #7e7e7e;
+  align-items: center;
+  display: flex;
+}
+
+.login-footer a {
+  color: #b6b6b6;
+  margin-left: 30%;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* //checkbox */
-.check input[type='checkbox'] + label{
-   display: block;
+.check input[type='checkbox'] + label {
+  display: block;
 }
-.login-footer input[type='checkbox']{
-    display: none;
-    
+.login-footer input[type='checkbox'] {
+  display: none;
 }
-.login-footer input[type='checkbox'] + label:before{
-   content: '\2714';
-   border:0.1em solid #b6b6b6 ;
-   border-radius: 0.2em;
-   display: inline;
-    width: 1em;
-   height: 1em; 
-    padding-left: 0.2em;
-   padding-bottom: 0.2em;
-   margin-right: 0.2em; 
-   vertical-align: bottom;
-   color: transparent;
-   transition: .2s;
+.login-footer input[type='checkbox'] + label:before {
+  content: '\2714';
+  border: 0.1em solid #b6b6b6;
+  border-radius: 0.2em;
+  display: inline;
+  width: 1em;
+  height: 1em;
+  padding-left: 0.2em;
+  padding-bottom: 0.2em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: 0.2s;
 }
-.login-footer input[type='checkbox']:checked + label::before{
-    background-color: #3BB77E;
-    border-color: #3BB77E;
-    color: #fff;
+.login-footer input[type='checkbox']:checked + label::before {
+  background-color: #3bb77e;
+  border-color: #3bb77e;
+  color: #fff;
 }
-.check input[type='checkbox']+ label:active:before{
-    transform: scale(0);
+.check input[type='checkbox'] + label:active:before {
+  transform: scale(0);
 }
 
-
-
-@media(min-width:768px) {
-    .login{
-        margin:auto;
-        width: 500px;
-        
-    }
+@media (min-width: 768px) {
+  .login {
+    margin: auto;
+    width: 500px;
+  }
 }
