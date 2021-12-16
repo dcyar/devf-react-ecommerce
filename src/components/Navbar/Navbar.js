@@ -39,7 +39,7 @@ export default function Navbar() {
                         </div>
                         <div className='nav_icon'>
                             <i className="fas fa-shopping-cart icon"></i>
-                            <span onClick={() => setDropdownCart(!dropdownCart)} className='nav_link'>Carrito</span>
+                            <span onClick={() => setDropdownCart(!dropdownCart)} className='nav_link'>Carrito ({shopCart.length})</span>
                             {
                                 dropdownCart && <CartDropdown />
                             }

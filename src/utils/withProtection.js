@@ -2,7 +2,7 @@
 // HOC es un componente de orden superior que nos ayuda a compartir lógica
 // Reutilizar la lógica de un componente, puede aplicarse en cualquier componente
 
-import React, { useState } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
 import { useUserContext } from "../context/userContext";
 
