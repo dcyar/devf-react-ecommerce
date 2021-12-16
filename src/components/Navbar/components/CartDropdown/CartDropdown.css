@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+.dropdown-cart {
+  position: absolute;
+  background-color: #ffffff;
+  margin-top: 10px;
+  width: 300px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(97, 97, 97, 0.1);
+  text-align: center;
+
+  border-radius: 10px;
+  padding: 18px 18px 26px 18px;
+}
+
+.dropdown-cart .empty-cart {
+  display: block;
+  padding: 20px;
+  font-size: 18px;
+  color: rgb(148, 148, 148);
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  border-top: rgb(236, 236, 236) solid 2px;
+  padding-top: 15px;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.total p {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.total p:nth-child(1) {
+  font-size: 18px;
+  color: rgb(148, 148, 148);
+  font-weight: bold;
+}
+
+.total p:nth-child(2) {
+  font-size: 20px;
+  color: #3bb77e;
+  font-weight: bold;
+}
+
+.botonCarrito {
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #3bb77e;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid #29a56c;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .dropdown-cart {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
