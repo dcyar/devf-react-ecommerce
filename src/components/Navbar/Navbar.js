@@ -18,21 +18,21 @@ export default function Navbar() {
             <Link to='/'><img className='logo' src={logo} alt='Logo'/></Link>
             <div className='searchbar'>
                 <input type='text' name='search' placeholder='Search for items...'/>
-                <i class="fas fa-search icon"></i>
+                <i className="fas fa-search icon"></i>
             </div>
             <div className='nav_options' ref={nav_options}>
                 {true ? 
                     <>
                     <div className='searchbar_hidden'>
                         <input type='text' name='search' placeholder='Search for items...'/>
-                        <i class="fas fa-search icon"></i>
+                        <i className="fas fa-search icon"></i>
                     </div>
                     <div className='nav_icon'>
-                        <i class="fas fa-user-alt icon" id="user_profile"></i>
+                        <i className="fas fa-user-alt icon" id="user_profile"></i>
                         <Link to='/profile' className='nav_link'>Bienvenido</Link>
                     </div>
                     <div className='nav_icon'>
-                        <i class="fas fa-shopping-cart icon"></i>
+                        <i className="fas fa-shopping-cart icon"></i>
                         <Link to='/carrito' className='nav_link'>Carrito</Link>
                     </div>
                     <div className='nav_icon'>
@@ -50,7 +50,7 @@ export default function Navbar() {
                     </>
                 }
             </div>
-            <button className='colapse_nav' onClick={toggle}><i class="fas fa-bars icon"></i></button>
+            <button className='colapse_nav' onClick={toggle}><i className="fas fa-bars icon"></i></button>
         </div>
     )
 }
