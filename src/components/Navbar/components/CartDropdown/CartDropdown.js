@@ -6,6 +6,10 @@ import './CartDropdown.css'
 
 const CartDropdown = () => {
   const { shopCart, handleClearShopCart } = useShopCartContext();
+  let total = 0;
+  for (let i = 0; i < shopCart.length; i++) {
+    total += shopCart[i].subtotal;
+  }
 
   return (
     <div className="dropdown-cart">
@@ -15,7 +19,11 @@ const CartDropdown = () => {
             {
               shopCart.map(product => <CartDropdownItem key={product.id} product={product} />)
             }
-            <p onClick={() => handleClearShopCart()}>Vaciar Carrito</p>
+            <div className='total'>
+              <p>Total</p>
+              <p>${total}</p>
+            </div>
+            <p className='botonCarrito' onClick={() => handleClearShopCart()}>Vaciar Carrito</p>
           </>
           : <span className='empty-cart'>El carrito esta vacio</span>
       }
