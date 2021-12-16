@@ -23,7 +23,8 @@ function ShopCartProvider(props) {
           product_name: item.product_name,
           image: item.image,
           count: item.id === payload.id ? item.count + payload.count : item.count,
-          price: item.price
+          price: item.price,
+          subtotal: item.price*(item.id === payload.id ? item.count + payload.count : item.count)
         }
       })
       setShopCart(mod)
