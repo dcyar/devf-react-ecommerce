@@ -5,11 +5,13 @@ import { useShopCartContext } from '../../context/cartContext';
 import CartDropdown from './components/CartDropdown';
 import logo from '../../assets/img/logo.svg';
 import './Navbar.css';
-
+import { useProductContext } from '../../context/productsContext';
 
 export default function Navbar() {
-    const { shopCart } = useShopCartContext();
     const { currentUser } = useUserContext();
+    const { shopCart } = useShopCartContext();
+    const { setSearch } = useProductContext();
+
     const [dropdownCart, setDropdownCart] = useState(false)
     const nav_options = useRef();
     const toggle = () => {
@@ -19,18 +21,25 @@ export default function Navbar() {
             nav_options.current.className = 'nav_options'
         }
     }
+
+    const handleKeyDown = ({ key, target }) => {
+        if (key === 'Enter') {
+            setSearch(target.value)
+        }
+    }
+
     return (
         <div className='navbar'>
             <Link to='/'><img className='logo' src={logo} alt='Logo' /></Link>
             <div className='searchbar'>
-                <input type='text' name='search' placeholder='Search for items...' />
+                <input type='text' name='search' onKeyDown={handleKeyDown} placeholder='Search for items...' />
                 <i className="fas fa-search icon"></i>
             </div>
             <div className='nav_options' ref={nav_options}>
                 {currentUser ?
                     <>
                         <div className='searchbar_hidden'>
-                            <input type='text' name='search' placeholder='Search for items...' />
+                            <input type='text' name='search' onKeyDown={handleKeyDown} placeholder='Search for items...' />
                             <i className="fas fa-search icon"></i>
                         </div>
                         <div className='nav_icon'>

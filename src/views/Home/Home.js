@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 import ProductCard from './components/ProductCard'
 import './Home.css'
+import { useProductContext } from '../../context/productsContext'
+import Loading from '../../components/Loading/Loading'
 
 const Home = () => {
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/item`)
-      .then(response => setProducts(response.data.slice(0, 10)))
-      .catch(err => console.log(err))
-  }, [])
+  const { loading, products } = useProductContext()
 
   return (
     <section className='container'>
@@ -18,9 +13,9 @@ const Home = () => {
         <h2>Productos Populares</h2>
         <div className="list-products">
           {
-            products.map((product, index) => (
-              <ProductCard key={index} product={product} />
-            ))
+            !loading
+              ? products.map(product => <ProductCard key={product._id} product={product} />)
+              : <Loading />
           }
         </div>
       </div>
