@@ -1,0 +1,141 @@
+.navbar {
+  display: flex;
+  width: 100vw;
+  height: 125px;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #7e7e7e;
+  align-content: center;
+  background-color: #ffffff;
+}
+
+.logo {
+  height: 55px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 50%;
+  flex-shrink: 2;
+  border: 2px solid #bce3c9;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.searchbar input {
+  border: none;
+  outline: none;
+}
+
+.nav_options {
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex-shrink: 0;
+  min-width: 35%;
+}
+
+.icon {
+  font-size: 25px;
+  margin-right: 10px;
+  color: #7e7e7e;
+}
+
+.nav_link,
+.nav_button {
+  text-decoration: none;
+}
+
+.nav_link {
+  color: #7e7e7e;
+}
+
+.nav_button {
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+
+#logout_button {
+  background-color: rgb(207, 26, 26);
+}
+
+#login_button {
+  background-color: rgb(9, 129, 9);
+}
+
+#signin_button {
+  background-color: rgb(67, 67, 247);
+}
+
+.colapse_nav {
+  background: none;
+  border: none;
+  padding: 0;
+  display: none;
+}
+
+.searchbar_hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-evenly;
+  }
+
+  .nav_options {
+    flex-direction: column;
+    position: fixed;
+    left: 100%;
+    transition: left 0.3s;
+    top: 125px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    height: calc(100% - 125px);
+    overflow-y: auto;
+    background-color: #bce3c9;
+  }
+
+  .nav_icon {
+    width: 100%;
+  }
+
+  .colapse_nav {
+    display: block;
+  }
+
+  .visible {
+    left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .searchbar {
+    display: none;
+  }
+  .searchbar_hidden {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #7e7e7e;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+  }
+
+  .searchbar_hidden input {
+    border: none;
+    outline: none;
+  }
+}
