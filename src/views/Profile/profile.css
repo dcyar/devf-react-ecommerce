@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
+.contenedorPerfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedorPerfil__foto {
+    text-align: center;
+}
+
+.contenedorPerfil__foto h1 {
+    font-family: 'Quicksand', sans-serif;
+    color: #253d4e;
+}
+
+.contenedorPerfil__foto img {
+    border-radius: 50%;
+}
+
+.contenedorPerfil__contenido{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.contenedorPerfil__contenido h3{
+    color: #253d4e;
+    font-size: 20px;
+}
+
+.contenedorPerfil__contenido p{
+    font-size: 16px;
+    color: rgb(114, 114, 114);
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 577px) {
+    .contenedorPerfil {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .contenedorPerfil {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 50px;
+    }
+
+    .contenedorPerfil__contenido {
+        margin-left: 150px;
+    }
+}
