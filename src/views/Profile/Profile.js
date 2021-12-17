@@ -52,4 +52,4 @@ const Profile = () => {
     )
 }
 
-export default withProtection(Profile, "AMBOS");
+export default withProtection(Profile, ["ADMIN", "CUSTOMER"]);

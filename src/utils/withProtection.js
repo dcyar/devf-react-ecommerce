@@ -6,16 +6,12 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { useUserContext } from "../context/userContext";
 
-export default function withProtection(Component, _role) {
+export default function withProtection(Component, roles) {
   //Verificamos si tenemos un token. Si no lo tenemos no mostramos el componente
   const ProtectedComponent = (props) => {
     const { token, role } = useUserContext();
 
-    if (_role === "AMBOS") {
-      _role = role;
-    }
-
-    return (token !== null && _role === role)
+    return (token !== null && roles.includes(role))
       ? <Component {...props} />
       : <Redirect to="/login" />;
   };
