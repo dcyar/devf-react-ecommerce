@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import swal from 'sweetalert2';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
@@ -7,6 +7,7 @@ import useForm from '../../../hooks/useForm'
 
 export default function FormularioRegister() {
     const history = useHistory()
+    const [confirm, setConfirm] = useState(false)
 
     const registerUser = (datos) => {
         axios
@@ -124,7 +125,7 @@ export default function FormularioRegister() {
                             id="role"
                             name="role"
                             onChange={handleInput}
-                            >
+                        >
                             <option selected disable>Elija su usuario</option>
                             <option value={inputs.role}>CUSTOMER</option>
                             <option value={inputs.role}>ADMIN</option>
@@ -139,10 +140,11 @@ export default function FormularioRegister() {
                             type="checkbox"
                             name="remember"
                             id="remember"
+                            onChange={() => setConfirm(!confirm)}
                         />
                         <label htmlFor="remember">Estoy de acuerdo con los términos y política</label>
                     </div>
-                    <button className="btn-register" type="submit">
+                    <button className="btn-register" type="submit" disabled={!confirm}>
                         Registrarse
                     </button>
                     <div>
