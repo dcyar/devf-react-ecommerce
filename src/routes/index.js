@@ -8,19 +8,19 @@ import Navbar from '../components/Navbar'
 import CrearProducto from "../views/CrearProducto/CrearProducto";
 import Profile from "../views/Profile/Profile";
 import ProductDetail from "../views/ProductDetail";
+import Home from "../views/Home/";
 import PageNotFound from "../views/PageNotFound";
 import Login from "../views/Login";
 import Register from "../views/Register";
 import Logout from "../components/Logout";
+import Footer from "../components/Footer/";
 
 function Routes() {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Switch>
-        <Route exact path="/">
-          <h1>Home <br /> Listado de productos... </h1>
-        </Route>
+        <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/registrarse" component={Register} />
         <Route exact path="/crear-producto" component={CrearProducto} />
@@ -29,6 +29,7 @@ function Routes() {
         <Route exact path="/logout" component={Logout} />
         <Route path="*" component={PageNotFound} />
       </Switch>
+      <Footer />
     </Router>
   );
 }

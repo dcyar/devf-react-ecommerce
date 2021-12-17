@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import swal from 'sweetalert2';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
@@ -7,6 +7,7 @@ import useForm from '../../../hooks/useForm'
 
 export default function FormularioRegister() {
     const history = useHistory()
+    const [confirm, setConfirm] = useState(false)
 
     const registerUser = (datos) => {
         axios
@@ -48,7 +49,7 @@ export default function FormularioRegister() {
                             type="text"
                             id="first_name"
                             name="first_name"
-                            placeholder="Tu nombre"
+                            placeholder="Tú nombre"
                             onChange={handleInput}
                             value={inputs.first_name}
                         />
@@ -59,7 +60,7 @@ export default function FormularioRegister() {
                             type="text"
                             id="last_name"
                             name="last_name"
-                            placeholder="Tu apellido"
+                            placeholder="Tú apellido"
                             onChange={handleInput}
                             value={inputs.last_name}
                         />
@@ -81,7 +82,7 @@ export default function FormularioRegister() {
                             type="text"
                             id="gender"
                             name="gender"
-                            placeholder="Tu genero"
+                            placeholder="Tú género: M/F"
                             onChange={handleInput}
                             value={inputs.gender}
                         />
@@ -92,7 +93,7 @@ export default function FormularioRegister() {
                             type="text"
                             id="email"
                             name="email"
-                            placeholder="Tu correo electrónico*"
+                            placeholder="Tú correo electrónico*"
                             onChange={handleInput}
                             value={inputs.email}
                         />
@@ -103,7 +104,7 @@ export default function FormularioRegister() {
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="Tu contraseña*"
+                            placeholder="Tú contraseña*"
                             onChange={handleInput}
                             value={inputs.password}
                         />
@@ -114,10 +115,21 @@ export default function FormularioRegister() {
                             type="password"
                             id="passwordConfirmation"
                             name="password"
-                            placeholder="Confirmacion de contraseña*"
+                            placeholder="Confirmación de contraseña*"
                             onChange={handleInput}
                             value={inputs.password}
                         />
+                    </div>
+                    <div className="register-contenedor-select">
+                        <select className="role-select"
+                            id="role"
+                            name="role"
+                            onChange={handleInput}
+                        >
+                            <option selected disable>Elija su usuario</option>
+                            <option value={inputs.role}>CUSTOMER</option>
+                            <option value={inputs.role}>ADMIN</option>
+                        </select>
                     </div>
                     <div>
                         <p className="parrafo">Sus datos personales se utilizarán para respaldar su experiencia en este sitio web, para administrar el accseo a su cuenta y para otros fines descritos en nuestra política de privacidad </p>
@@ -128,10 +140,11 @@ export default function FormularioRegister() {
                             type="checkbox"
                             name="remember"
                             id="remember"
+                            onChange={() => setConfirm(!confirm)}
                         />
                         <label htmlFor="remember">Estoy de acuerdo con los términos y política</label>
                     </div>
-                    <button className="btn-register" type="submit">
+                    <button className="btn-register" type="submit" disabled={!confirm}>
                         Registrarse
                     </button>
                     <div>

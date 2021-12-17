@@ -257,4 +257,4 @@ const CrearProducto = () => {
     )
 }
 
-export default withProtection(CrearProducto, "ADMIN");
+export default withProtection(CrearProducto, ["ADMIN"]);
